@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Unit Converter</string>
+    <string name="from_unit_label">From:</string>
+    <string name="to_unit_label">To:</string>
+    <string name="input_label">Input:</string>
+    <string name="convert_button_label">Convert</string>
+    <string-array name="units_array">
+        <item>m</item>
+        <item>cm</item>
+        <item>km</item>
+        <item>in</item>
+        <item>ft</item>
+        <item>yr</item>
+        <item>mi</item>
+
+    </string-array>
+</resources>

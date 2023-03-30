@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+<TextView
+    android:id="@+id/from_unit_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/from_unit_label"
+    android:textSize="18sp" />
+
+<Spinner
+    android:id="@+id/from_unit_spinner"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/from_unit_text_view"
+    android:layout_marginTop="8dp" />
+
+<TextView
+    android:id="@+id/to_unit_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/from_unit_spinner"
+    android:layout_marginTop="16dp"
+    android:text="@string/to_unit_label"
+    android:textSize="18sp" />
+
+<Spinner
+    android:id="@+id/to_unit_spinner"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/to_unit_text_view"
+    android:layout_marginTop="8dp" />
+
+<TextView
+    android:id="@+id/input_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/to_unit_spinner"
+    android:layout_marginTop="16dp"
+    android:text="@string/input_label"
+    android:textSize="18sp" />
+
+<EditText
+    android:id="@+id/input_edit_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/input_text_view"
+    android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/convert_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_edit_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:onClick="onConvertButtonClick"
+        android:text="@string/convert_button_label" />
+
+<TextView
+    android:id="@+id/result_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/convert_button"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="16dp"
+    android:textSize="24sp" />
+</RelativeLayout>
