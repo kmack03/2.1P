@@ -27,20 +27,74 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         inputEditText = findViewById(R.id.input_edit_text);
         resultTextView = findViewById(R.id.result_text_view);
 
+        ArrayAdapter<String> toAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+        toAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        toUnitSpinner.setAdapter(toAdapter);
+
+
         // Set up the spinners with the available units
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.units_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        fromUnitSpinner.setAdapter(adapter);
-        toUnitSpinner.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapterFrom = ArrayAdapter.createFromResource(this,
+                R.array.units, android.R.layout.simple_spinner_item);
+        adapterFrom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        fromUnitSpinner.setAdapter(adapterFrom);
 
         // Set up the converter with the conversion factors
         converter = new UnitConverter();
 
-        // Set up the listener for the spinners
-        fromUnitSpinner.setOnItemSelectedListener(this);
-        toUnitSpinner.setOnItemSelectedListener(this);
+        // Add a listener to the first spinner
+        fromUnitSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected unit from the first spinner
+                String fromUnit = parent.getItemAtPosition(position).toString();
+
+                // Update the items of the second spinner based on the selected unit
+                switch (fromUnit) {
+                    case "m":
+                    case "cm":
+                    case "km":
+                    case "in":
+                    case "ft":
+                    case "yd":
+                    case "mi":
+                        // If the selected unit is a distance unit, show distance units in the second spinner
+                        ArrayAdapter<CharSequence> distanceAdapter = ArrayAdapter.createFromResource(
+                                MainActivity.this, R.array.distance, android.R.layout.simple_spinner_item);
+                        distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        toUnitSpinner.setAdapter(distanceAdapter);
+                        break;
+
+                    case "kg":
+                    case "t":
+                    case "lb":
+                    case "oz":
+                        // If the selected unit is a weight unit, show weight units in the second spinner
+                        ArrayAdapter<CharSequence> weightAdapter = ArrayAdapter.createFromResource(
+                                MainActivity.this, R.array.weight, android.R.layout.simple_spinner_item);
+                        weightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        toUnitSpinner.setAdapter(weightAdapter);
+                        break;
+
+                    case "c":
+                    case "f":
+                    case "k":
+                        // If the selected unit is a temperature unit, show temperature units in the second spinner
+                        ArrayAdapter<CharSequence> tempAdapter = ArrayAdapter.createFromResource(
+                                MainActivity.this, R.array.temp, android.R.layout.simple_spinner_item);
+                        tempAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        toUnitSpinner.setAdapter(tempAdapter);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

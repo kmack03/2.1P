@@ -4,7 +4,7 @@
     <string name="to_unit_label">To:</string>
     <string name="input_label">Input:</string>
     <string name="convert_button_label">Convert</string>
-    <string-array name="units_array">
+    <string-array name="units">
         <item>m</item>
         <item>cm</item>
         <item>km</item>
@@ -12,6 +12,37 @@
         <item>ft</item>
         <item>yr</item>
         <item>mi</item>
-
+        <item>kg</item>
+        <item>tonne</item>
+        <item>oz</item>
+        <item>lb</item>
+        <item>c</item>
+        <item>f</item>
+        <item>k</item>
     </string-array>
+
+    <string-array name="distance">
+        <item>m</item>
+        <item>cm</item>
+        <item>km</item>
+        <item>in</item>
+        <item>ft</item>
+        <item>yr</item>
+        <item>mi</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item>kg</item>
+        <item>tonne</item>
+        <item>oz</item>
+        <item>lb</item>
+    </string-array>
+
+    <string-array name="temp">
+        <item>c</item>
+        <item>f</item>
+        <item>k</item>
+    </string-array>
+
+
 </resources>
